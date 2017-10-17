@@ -3,15 +3,15 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <Authors></Authors>
     <Company />
     <Description>An implementation of the Syrx ICommander for relational databases.</Description>
-    <PackageProjectUrl>https://github.com/SyrxCommander/Syrx</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/SyrxCommander/Syrx</RepositoryUrl>
-    <PackageReleaseNotes>• Updated package information.
-• Minor bug fix.</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/SyrxCommander/Syrx</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Syrx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Syrx</RepositoryUrl>
+    <PackageReleaseNotes>• Allow overrides on implementation methods</PackageReleaseNotes>
+    <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
+    <Copyright>https://github.com/Syrx</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

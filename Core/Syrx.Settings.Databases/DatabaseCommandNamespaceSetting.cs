@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -14,6 +14,9 @@ namespace Syrx.Settings.Databases
 {
     public class DatabaseCommandNamespaceSetting : IDatabaseCommandNamespaceSetting
     {
+        public string Namespace { get; set; }
+        public IEnumerable<ITypeSetting<DatabaseCommandSetting>> Types { get; set; }
+
         public DatabaseCommandNamespaceSetting(string @namespace,
             IEnumerable<DatabaseCommandTypeSetting> types)
         {
@@ -26,9 +29,6 @@ namespace Syrx.Settings.Databases
             Namespace = @namespace;
             Types = typeSettings;
         }
-
-        public string Namespace { get; set; }
-        public IEnumerable<ITypeSetting<DatabaseCommandSetting>> Types { get; set; }
 
         private static class Messages
         {

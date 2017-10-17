@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syrx.Readers.Databases.Unit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Syrx.Settings.Databases.Unit.Tests", "Tests\Syrx.Settings.Databases.Unit.Tests\Syrx.Settings.Databases.Unit.Tests.csproj", "{0401D64A-811F-4E1D-8DC5-2EC1B53EEEF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Syrx.Settings.Databases.Serialization.Integration.Tests", "Syrx.Settings.Databases.Serialization.Integration.Tests\Syrx.Settings.Databases.Serialization.Integration.Tests.csproj", "{402B9869-3853-4CB6-AA0A-3D23707A083C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{0401D64A-811F-4E1D-8DC5-2EC1B53EEEF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0401D64A-811F-4E1D-8DC5-2EC1B53EEEF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0401D64A-811F-4E1D-8DC5-2EC1B53EEEF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{402B9869-3853-4CB6-AA0A-3D23707A083C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{402B9869-3853-4CB6-AA0A-3D23707A083C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{402B9869-3853-4CB6-AA0A-3D23707A083C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{402B9869-3853-4CB6-AA0A-3D23707A083C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{F085F0C4-8CB7-4022-8387-46D2579879F0} = {97698B43-C0F3-4AC8-BBB9-A1002D1734FA}
 		{6C334164-A6A0-40CA-B6AF-1C95E35E699B} = {97698B43-C0F3-4AC8-BBB9-A1002D1734FA}
 		{0401D64A-811F-4E1D-8DC5-2EC1B53EEEF9} = {97698B43-C0F3-4AC8-BBB9-A1002D1734FA}
+		{402B9869-3853-4CB6-AA0A-3D23707A083C} = {97698B43-C0F3-4AC8-BBB9-A1002D1734FA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DC7075B0-CA6C-4236-A7D4-99371CE67697}

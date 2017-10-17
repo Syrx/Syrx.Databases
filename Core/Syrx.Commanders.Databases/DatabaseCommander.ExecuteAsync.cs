@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -11,12 +11,14 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Transactions;
 using Dapper;
+using Syrx.Connectors.Databases;
+using Syrx.Readers.Databases;
 
 namespace Syrx.Commanders.Databases
 {
     public partial class DatabaseCommander<TRepository>
     {
-        public async Task<bool> ExecuteAsync<TResult>(CancellationToken cancellationToken = default(CancellationToken),
+        public virtual async Task<bool> ExecuteAsync<TResult>(CancellationToken cancellationToken = default(CancellationToken),
             [CallerMemberName] string method = null)
         {
             var setting = _reader.GetCommand(typeof(TRepository), method);
@@ -42,7 +44,7 @@ namespace Syrx.Commanders.Databases
             }
         }
 
-        public async Task<bool> ExecuteAsync<TResult>(TResult model,
+        public virtual async Task<bool> ExecuteAsync<TResult>(TResult model,
             CancellationToken cancellationToken = default(CancellationToken), [CallerMemberName] string method = null)
         {
             var setting = _reader.GetCommand(typeof(TRepository), method);
@@ -67,7 +69,7 @@ namespace Syrx.Commanders.Databases
             }
         }
 
-        public async Task<TResult> ExecuteAsync<TResult>(Func<TResult> map,
+        public virtual async Task<TResult> ExecuteAsync<TResult>(Func<TResult> map,
             TransactionScopeOption scopeOption = TransactionScopeOption.Suppress,
             TransactionScopeAsyncFlowOption asyncFlowOption = TransactionScopeAsyncFlowOption.Enabled,
             CancellationToken cancellationToken = default(CancellationToken), [CallerMemberName] string method = null)

@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -20,14 +20,14 @@ namespace Syrx.Commanders.Databases
         private readonly IDatabaseConnector _connector;
         private readonly IDatabaseCommandReader _reader;
 
+        public void Dispose()
+        {
+        }
+
         public DatabaseCommander(IDatabaseCommandReader reader, IDatabaseConnector connector)
         {
             _reader = reader;
             _connector = connector;
-        }
-
-        public void Dispose()
-        {
         }
 
         [Browsable(false)]

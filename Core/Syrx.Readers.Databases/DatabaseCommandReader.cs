@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -10,6 +10,7 @@ using System.Linq;
 using Syrx.Settings;
 using Syrx.Settings.Databases;
 using static Syrx.Validation.Contract;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace Syrx.Readers.Databases
@@ -25,7 +26,7 @@ namespace Syrx.Readers.Databases
             _settings = settings;
         }
 
-        public DatabaseCommandSetting GetCommand(Type type, string key)
+        public virtual DatabaseCommandSetting GetCommand(Type type, string key)
         {
             Require<ArgumentNullException>(type != null, nameof(type));
             Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(key), nameof(key));
@@ -38,7 +39,7 @@ namespace Syrx.Readers.Databases
 
             var typeSetting = GetTypeSetting(namespaceSetting, type);
             Require<NullReferenceException>(typeSetting != null,
-                ErrorMessages.NoTypeSettingAndNoPathInNamespace,
+                ErrorMessages.NoTypeSetting,
                 type.FullName,
                 namespaceSetting.Namespace);
 
@@ -49,11 +50,10 @@ namespace Syrx.Readers.Databases
                 typeSetting.Name);
 
             return commandSetting;
-        }
+        }        
 
         private INamespaceSetting<DatabaseCommandSetting> GetNamespaceSetting(Type type)
-        {
-            //return _settings.Namespaces.SingleOrDefault(x => x.Namespace == type.Namespace);
+        {            
             var result = _settings.Namespaces.SingleOrDefault(x => x.Namespace == type.Namespace);
 
             if (result != null)
@@ -89,27 +89,24 @@ namespace Syrx.Readers.Databases
             return namespaceSetting.Types?.SingleOrDefault(x => x.Name == type.FullName);
         }
 
-        private DatabaseCommandSetting GetCommandSetting(            
+        private DatabaseCommandSetting GetCommandSetting(
             ITypeSetting<DatabaseCommandSetting> typeSetting,
             string key)
         {
-            return typeSetting.Commands?.SingleOrDefault(x => x.Key == key).Value;            
+            return typeSetting.Commands?.SingleOrDefault(x => x.Key == key).Value;
         }
-
-
+        
         private static class ErrorMessages
         {
             internal const string NoNamespaceSettingForType =
                 @"'{0}' does not belong to any NamespaceSetting.
 Please check settings.";
 
-            internal const string NoTypeSettingAndNoPathInNamespace =
-                    @"The type '{0}' has no entry in the type settings of namespace '{1}'. Please add a type setting entry to the namespace setting."
-                ;
+            internal const string NoTypeSetting =
+                    @"The type '{0}' has no entry in the type settings of namespace '{1}'. Please add a type setting entry to the namespace setting.";
 
             internal const string NoCommandSetting =
-                    @"The command setting '{0}' has no entry for the type setting '{1}'. Please add a command setting entry to the type setting."
-                ;
+                    @"The command setting '{0}' has no entry for the type setting '{1}'. Please add a command setting entry to the type setting.";
         }
     }
 }

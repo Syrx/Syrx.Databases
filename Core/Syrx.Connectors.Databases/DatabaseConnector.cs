@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -11,6 +11,7 @@ using System.Data.Common;
 using System.Linq;
 using Syrx.Settings.Databases;
 using static Syrx.Validation.Contract;
+
 // ReSharper disable PossibleNullReferenceException
 
 namespace Syrx.Connectors.Databases
@@ -32,7 +33,7 @@ namespace Syrx.Connectors.Databases
             _providerPredicate = providerPredicate;
         }
 
-        public IDbConnection CreateConnection(DatabaseCommandSetting commandSetting)
+        public virtual IDbConnection CreateConnection(DatabaseCommandSetting commandSetting)
         {
             // pre-conditions. 
             Require<ArgumentNullException>(commandSetting != null, nameof(commandSetting));
@@ -52,7 +53,7 @@ namespace Syrx.Connectors.Databases
             connection.ConnectionString = connectionStringSetting.ConnectionString;
             return connection;
         }
-
+        
         private static class Messages
         {
             internal const string NoAliasedConnection =

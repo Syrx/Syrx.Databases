@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:59)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -18,7 +18,7 @@ namespace Syrx.Settings.Databases.Unit.Tests.DatabaseCommanderSettingsTests
         {
             _connectionStringSettings = new List<ConnectionStringSetting>
             {
-                new ConnectionStringSetting("test", "providerName", "connectionString")
+                new ConnectionStringSetting("test", "connectionString")
             };
 
             _namespaceSettings = new List<DatabaseCommandNamespaceSetting>
@@ -55,11 +55,10 @@ namespace Syrx.Settings.Databases.Unit.Tests.DatabaseCommanderSettingsTests
         }
 
         [Fact]
-        public void NullConnectionStringSettingsThrowsArgumentNullException()
+        public void NullConnectionStringSettingsSupported()
         {
-            var result =
-                Throws<ArgumentNullException>(() => new DatabaseCommanderSettings(_namespaceSettings, null));
-            Equal("Value cannot be null.\r\nParameter name: connections", result.Message);
+            var result = new DatabaseCommanderSettings(_namespaceSettings);
+            Equal(_namespaceSettings, result.Namespaces);
         }
 
         [Fact]
@@ -77,6 +76,22 @@ namespace Syrx.Settings.Databases.Unit.Tests.DatabaseCommanderSettingsTests
             var result = new DatabaseCommanderSettings(_namespaceSettings, _connectionStringSettings);
             Equal(_connectionStringSettings, result.Connections);
             Equal(_namespaceSettings, result.Namespaces);
+        }
+
+        [Fact]
+        public void SupportsMutableConnectionSettings()
+        {
+            var newConnections = new List<ConnectionStringSetting>
+            {
+                new ConnectionStringSetting("connections.a", "connection.string.a")
+            };
+
+            var result = new DatabaseCommanderSettings(_namespaceSettings, _connectionStringSettings);
+            Equal(_connectionStringSettings, result.Connections);
+
+            // mutate
+            result.Connections = newConnections;
+            Equal(newConnections, result.Connections);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -14,27 +14,25 @@ namespace Syrx.Settings.Databases
 {
     public class DatabaseCommanderSettings : IDatabaseCommanderSettings
     {
+        public IEnumerable<INamespaceSetting<DatabaseCommandSetting>> Namespaces { get; }
+        public IEnumerable<ConnectionStringSetting> Connections { get; set; }        
+        
         public DatabaseCommanderSettings(
             IEnumerable<DatabaseCommandNamespaceSetting> namespaces,
-            IEnumerable<ConnectionStringSetting> connections)
+            IEnumerable<ConnectionStringSetting> connections = null)
         {
-            Require<ArgumentNullException>(connections != null, nameof(connections));
             Require<ArgumentNullException>(namespaces != null, nameof(namespaces));
-
-            var connectionStringSettings = connections as ConnectionStringSetting[] ?? connections.ToArray();
-            Require<ArgumentException>(connectionStringSettings.Any(),
-                Messages.EmptyConnectionStringSettingsList);
-
             var namespaceSettings = namespaces as DatabaseCommandNamespaceSetting[] ?? namespaces.ToArray();
             Require<ArgumentException>(namespaceSettings.Any(), Messages.EmptyNamespaceSettingsList);
-
-            Connections = connectionStringSettings;
             Namespaces = namespaceSettings;
-        }
 
-        public IEnumerable<INamespaceSetting<DatabaseCommandSetting>> Namespaces { get; }
-        public IEnumerable<ConnectionStringSetting> Connections { get; }
-        public IEnumerable<Type> Types { get; set; }
+            if (connections != null)
+            {
+                var connectionStringSettings = connections as ConnectionStringSetting[] ?? connections.ToArray();
+                Require<ArgumentException>(connectionStringSettings.Any(), Messages.EmptyConnectionStringSettingsList);
+                Connections = connectionStringSettings;
+            }
+        }
 
         private static class Messages
         {

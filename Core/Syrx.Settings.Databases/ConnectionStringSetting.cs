@@ -1,7 +1,7 @@
 ﻿//  ============================================================================================================================= 
 //  author       : david sexton (@sextondjc | sextondjc.com)
-//  date         : 2017.09.29 (21:39)
-//  modified     : 2017.10.01 (20:40)
+//  date         : 2017.10.15 (17:58)
+//  modified     : 2017.10.15 (22:43)
 //  licence      : This file is subject to the terms and conditions defined in file 'LICENSE.txt', which is part of this source code package.
 //  =============================================================================================================================
 
@@ -20,15 +20,7 @@ namespace Syrx.Settings.Databases
         /// from a CommandSetting
         /// </summary>
         public string Alias { get; set; }
-
-        /// <summary>
-        /// Gets the name of the provider.
-        /// </summary>
-        /// <value>
-        /// The name of the provider.
-        /// </value>
-        public string ProviderName { get; }
-
+        
         /// <summary>
         /// Gets the connection string.
         /// </summary>
@@ -44,17 +36,13 @@ namespace Syrx.Settings.Databases
         /// <param name="providerName">The name of the provider used by the conenction.</param>
         /// <param name="connectionString">The connection string.</param>        
         public ConnectionStringSetting(
-            string alias,
-            string providerName,
+            string alias,            
             string connectionString)
         {
-            Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(alias), nameof(alias));
-            Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(providerName), nameof(providerName));
-            Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(connectionString),
-                nameof(connectionString));
+            Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(alias), nameof(alias));            
+            Require<ArgumentNullException>(!string.IsNullOrWhiteSpace(connectionString), nameof(connectionString));
 
-            Alias = alias;
-            ProviderName = providerName;
+            Alias = alias;            
             ConnectionString = connectionString;
         }
     }
