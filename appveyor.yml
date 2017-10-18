@@ -21,8 +21,8 @@ build_script:
   - ps: Pop-Location
 
 test_script:
-    - ps: dotnet test .\Tests\Syrx.Connectors.Databases.Unit.Tests\Syrx.Connectors.Databases.Unit.Tests.csproj
-    - ps: dotnet test .\Tests\Syrx.Readers.Databases.Unit.Tests\Syrx.Readers.Databases.Unit.Tests.csproj
-    - ps: dotnet test .\Tests\Syrx.Settings.Databases.Unit.Tests\Syrx.Settings.Databases.Unit.Tests.csproj
-    - ps: dotnet test .\Tests\Syrx.Settings.Databases.Serialization.Integration.Tests\Syrx.Settings.Databases.Serialization.Integration.Tests.csproj
+    - ps: dotnet test .\..\Syrx.Connectors.Databases.Unit.Tests\Syrx.Connectors.Databases.Unit.Tests.csproj
+    - ps: dotnet test .\..\Syrx.Readers.Databases.Unit.Tests\Syrx.Readers.Databases.Unit.Tests.csproj
+    - ps: dotnet test .\..\Syrx.Settings.Databases.Unit.Tests\Syrx.Settings.Databases.Unit.Tests.csproj
+    - ps: dotnet test .\..\Syrx.Settings.Databases.Serialization.Integration.Tests\Syrx.Settings.Databases.Serialization.Integration.Tests.csproj
 version: 1.0.0.{build}
