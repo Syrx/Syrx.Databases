@@ -146,20 +146,10 @@ namespace Syrx.Readers.Databases.Unit.Tests.DatabaseCommandReaderTests
             NotNull(result);            
             Equal("root namespace", result.CommandText);
             Equal("test.alias.rootnamespace", result.ConnectionAlias);
-        }
-
-        // [Fact]
-        public void Successfully()
-        {
-            var result = _reader.GetCommand(typeof(GetCommand), "Retrieve");
-            NotNull(result);
-            Equal("test.alias", result.ConnectionAlias);
-            Equal("select 'Readers.Test.Settings.GetCommand'[Result];", result.CommandText);
-        }
+        }        
     }
 
-    internal class ParentNamespaceTest { }
-    
+    internal class ParentNamespaceTest { }    
     internal class NoTypeSettingTest { }
     internal class NoCommandSettingTest { }    
 }
