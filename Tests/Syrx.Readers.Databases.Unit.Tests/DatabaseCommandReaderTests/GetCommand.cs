@@ -81,7 +81,8 @@ namespace Syrx.Readers.Databases.Unit.Tests.DatabaseCommandReaderTests
             var result = Throws<NullReferenceException>(() =>
                 _reader.GetCommand(typeof(NoNamespaceType), "NoNamespaceSettingThrowsNullReferenceException"));
             Equal(
-                $"'{typeof(NoNamespaceType).FullName}' does not belong to any NamespaceSetting.\r\nPlease check settings.",
+                $@"'{typeof(NoNamespaceType).FullName}' does not belong to any NamespaceSetting.
+Please check settings.",
                 result.Message);
         }
 
