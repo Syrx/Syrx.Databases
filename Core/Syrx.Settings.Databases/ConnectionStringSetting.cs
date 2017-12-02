@@ -32,8 +32,7 @@ namespace Syrx.Settings.Databases
         /// <summary>
         /// Initializes a new instance of the <see cref="ConnectionStringSetting"/> class.
         /// </summary>
-        /// /// <param name="alias">An alias to refer to this connection.</param>
-        /// <param name="providerName">The name of the provider used by the conenction.</param>
+        /// <param name="alias">An alias to refer to this connection.</param>        
         /// <param name="connectionString">The connection string.</param>        
         public ConnectionStringSetting(
             string alias,            

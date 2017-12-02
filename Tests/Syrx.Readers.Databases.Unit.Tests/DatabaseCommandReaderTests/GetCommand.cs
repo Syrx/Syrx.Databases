@@ -81,7 +81,8 @@ namespace Syrx.Readers.Databases.Unit.Tests.DatabaseCommandReaderTests
             var result = Throws<NullReferenceException>(() =>
                 _reader.GetCommand(typeof(NoNamespaceType), "NoNamespaceSettingThrowsNullReferenceException"));
             Equal(
-                $"'{typeof(NoNamespaceType).FullName}' does not belong to any NamespaceSetting.\r\nPlease check settings.",
+                $@"'{typeof(NoNamespaceType).FullName}' does not belong to any NamespaceSetting.
+Please check settings.",
                 result.Message);
         }
 
@@ -146,20 +147,10 @@ namespace Syrx.Readers.Databases.Unit.Tests.DatabaseCommandReaderTests
             NotNull(result);            
             Equal("root namespace", result.CommandText);
             Equal("test.alias.rootnamespace", result.ConnectionAlias);
-        }
-
-        // [Fact]
-        public void Successfully()
-        {
-            var result = _reader.GetCommand(typeof(GetCommand), "Retrieve");
-            NotNull(result);
-            Equal("test.alias", result.ConnectionAlias);
-            Equal("select 'Readers.Test.Settings.GetCommand'[Result];", result.CommandText);
-        }
+        }        
     }
 
-    internal class ParentNamespaceTest { }
-    
+    internal class ParentNamespaceTest { }    
     internal class NoTypeSettingTest { }
     internal class NoCommandSettingTest { }    
 }
