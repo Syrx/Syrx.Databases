@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,16 +6,17 @@
     <Version>1.1.0</Version>
     <Authors>@sextondjc</Authors>
     <Company />
-    <Description>Reads commands for relational databases from configration sources.</Description>
+    <Description>Creates connections to relational databases.</Description>
+    <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Syrx</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Syrx</RepositoryUrl>
-    <PackageReleaseNotes>• Allow override on GetCommand method</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
+    <PackageReleaseNotes>• Allow overide of CreateConnection method</PackageReleaseNotes>
     <Copyright>https://github.com/Syrx</Copyright>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syrx.Validation" Version="1.0.0" />
+    <PackageReference Include="Syrx.Connectors" Version="1.*" />
+    <PackageReference Include="Syrx.Validation" Version="1.*" />
   </ItemGroup>
 
   <ItemGroup>
