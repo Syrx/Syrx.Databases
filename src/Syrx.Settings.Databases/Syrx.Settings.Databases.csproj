@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.1.0</Version>
-    <PackageLicenseUrl>https://github.com/SyrxCommander/Syrx</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/SyrxCommander/Syrx</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/sextondjc/Syrx/</RepositoryUrl>
+    <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/Syrx</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Syrx/</RepositoryUrl>
     <Description>A collection of classes used for managing the configuration of Syrx implementations against relational databases.</Description>
     <PackageReleaseNotes>• Changed the IDatabaseCommander settings to have optional Connections property. This allows connection settings to be stored separately from queries.
 • Removed redundant ProviderName setting.</PackageReleaseNotes>
@@ -15,9 +15,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syrx.Readers" Version="1.0.0" />
-    <PackageReference Include="Syrx.Settings" Version="1.1.0" />
-    <PackageReference Include="Syrx.Validation" Version="1.0.0" />
+    <PackageReference Include="Syrx.Readers" Version="1.*" />
+    <PackageReference Include="Syrx.Settings" Version="1.*" />
+    <PackageReference Include="Syrx.Validation" Version="1.*" />
   </ItemGroup>
 
 </Project>
