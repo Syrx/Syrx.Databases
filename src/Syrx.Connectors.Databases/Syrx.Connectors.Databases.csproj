@@ -8,6 +8,7 @@
     <Company />
     <Description>Creates connections to relational databases.</Description>
     <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Syrx</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Syrx</RepositoryUrl>
     <PackageReleaseNotes>• Allow overide of CreateConnection method</PackageReleaseNotes>

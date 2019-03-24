@@ -5,6 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Version>1.1.0</Version>
     <PackageLicenseUrl>https://github.com/Syrx</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Syrx</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Syrx/</RepositoryUrl>
     <Description>A collection of classes used for managing the configuration of Syrx implementations against relational databases.</Description>
